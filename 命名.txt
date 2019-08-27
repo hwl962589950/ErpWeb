@@ -1,0 +1,35 @@
+PublicInformation 			公用资料
+Purchasing					采购管理
+Sale						销售管理
+Stock						库存管理
+Production					生产管理
+Accounts 					账款管理
+Finance						财务管理
+Cashier						出纳管理
+SolidCapital				固资管理
+Mes							消息管理
+PersonnelWages			  	人事工资管理
+CustomerRelationship		客户关系管理
+ReportForm					报表管理
+
+
+WEB
+Filer 						AOP管理
+FsLayUi						对接FsLayUi返回的JSON数据
+
+前端
+	Purchasing					采购管理
+		Stockapply					采购请购
+			Add.html						新增采购请购
+			Queny.html						查询采购请购
+			
+		Stockapplydetails		采购请购详细
+			Add.html							新增采购请购详细
+			Queny.html						    查询采购请购详细
+		Stockorder				采购订单
+
+		Stockinquire    		采购询价
+		
+		Stockstoragetable		采购入库
+		
+		

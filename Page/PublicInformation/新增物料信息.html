@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		 
+		
+			<script src="common.js"></script>
+		
+    <style>
+                .layui-table-cell {
+            height: 100%;
+            max-width: 100%;
+        }
+
+
+    </style>
+	</head>
+
+
+
+<body>
+
+
+
+    <div class="site-text site-block">
+        <form class="layui-form layui-form-pane" action="" isLoad="1" loadUrl="/Materiel/GetQueny" id="Materiel">
+            <input id="id" name="MaterielId" type="hidden" />
+            <div class="layui-form-item">
+                <label class="layui-form-label required">物料名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="MaterielName" required="" lay-verify="required" placeholder="请输入物料名称" autocomplete="off" class="layui-input">
+                </div>
+
+                <label class="layui-form-label">英文名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="EnglishName"   autocomplete="off" class="layui-input">
+                </div>
+
+
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label required">计量单位</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="MaterielTypeId" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+
+
+                <label class="layui-form-label required">物料类别</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="MeteringId" required="" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">型号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="MaterielModel"  autocomplete="off" class="layui-input">
+                </div>
+
+                <label class="layui-form-label">条形码</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="BarCode"   autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">基本资料</li>
+                    <li>存量总信息</li>
+                    <li>存量明显信息</li>
+                    <li>交易资料</li>
+                    <li>物料明细</li>
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-tab-item layui-show">
+
+                        <div class="layui-form-item layui-inline">
+                            <label class="layui-form-label">建议售价</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Price_Proposal" required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">售价A</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Price_A" required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+
+                            <label class="layui-form-label">售价B</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Price_B" required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">售价C</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Price_C" required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">售价D</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Price_D" required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">售价E</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Price_E" required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">标准进加</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Price_Standard" required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="layui-form-item layui-inline">
+                            <label class="layui-form-label required">使用币别</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="CurrencyId" required="" value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">物料类型</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="" required="" value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+
+
+                            <label class="layui-form-label">税率(%)</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="TaxRate" required="" value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">提前采购期</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="AdvancePurchase" required="" value="0" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">主供应商</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Main_SupplierId" required="" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">单价含税</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="PrinceIsTax" value="True" title="含税" checked>
+                                <input type="radio" name="PrinceIsTax" value="False" title="不含税">
+                            </div>
+
+                            <div class="layui-input-block">
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="layui-tab-item">
+                        <div class="layui-form-item layui-inline">
+                            <label class="layui-form-label">安全存量</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="SafetyStock" required=""  value="0" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">期初总数量</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="EarlyStageStock" required=""   value="0" autocomplete="off" class="layui-input layui-disabled" disabled="disabled" readonly  >
+                            </div>
+
+                            <label class="layui-form-label">平均成本</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="AugCost" required="" readonly="readonly"  value="0" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">标准成本</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="StandardCost" required=""   value="0"  autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">期初总成本</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="EarlyStageSumCost" readonly required=""  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+
+                        </div>
+
+                        <div class="layui-form-item layui-inline">
+                            <label class="layui-form-label">低于安全存量</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="LowerEarlyStageStock" required="" readonly  value="0" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">现有总数量</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="CurrentStock" required=""  readonly value="0" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">现行平均成本</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="CurrentAugCost" required="" readonly  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">标准总成本</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="" required=""  value="0" readonly autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">现行总成本</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="SumStandardCost" required="" readonly  value="0.00" autocomplete="off" class="layui-input">
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="layui-tab-item">
+                        <table id="fsDatagrid" lay-filter="fsDatagrid" class="fsDatagrid" isLoad="1" url="/fsbus/1000" isPage="1" sortType="1" pageSize="10" height="full" isTotalRow="1">
+                        </table>
+                        <div class="fsDatagridCols">
+                            <p type="numbers" title="#" />
+                            <p type="normal" title="仓库编号" />
+                            <p title="仓库名称" />
+                            <p title="期初存量" totalRow="true" />
+                            <p title="现有数量" totalRow="true" />
+                        </div>
+                    </div>
+
+                    <div class="layui-tab-item">
+
+                        <div class="layui-form-item layui-inline">
+                            <label class="layui-form-label">最初出库日</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="First_OutStock" required=""  readonly autocomplete="off" class="layui-input ">
+                            </div>
+
+                            <label class="layui-form-label">最初入库日</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="First_EnterStock" required=""  readonly autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">呆滞起计天数</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Sluggish" required=""  value="0" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item layui-inline">
+                            <label class="layui-form-label">最近出库日</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Lately_OutStock" required=""  disabled="disabled" readonly  autocomplete="off" class="layui-input layui-disabled">
+                            </div>
+
+                            <label class="layui-form-label">最近入库日</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="Lately_EnterStock" required=""  readonly autocomplete="off" class="layui-input">
+                            </div>
+
+                            <label class="layui-form-label">停用日期</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="DisabledTime" autocomplete="off" class="layui-input fsDate" dateType="date" />
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="layui-tab-item">
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">备注</label>
+                            <div class="layui-input-block">
+                                <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="layui-form-item" style="text-align: center;">
+                <button class="layui-btn fsAdd" lay-submit="" lay-filter="save" url="/Materiel/AddMateriel" requestSuccessCallback="add">新增</button>
+                <button class="layui-btn fsEdit" lay-submit="" lay-filter="edit" url="/fsbus/1004" requestSuccessCallback="true">编辑</button>
+                <button type="button" class="layui-btn layui-btn-primary" function="close">关闭</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
+<script>
+
+
+
+    layui.fsRequestSuccessCallback.add = function(result,_this,fsCommon){
+        console.log(result);
+        if (result.flage) {
+            fsCommon.successMsg("新增成功");
+                var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                window.parent.location.reload();   //刷新父界面
+                parent.layer.close(index);    //关闭弹出层
+            
+        } else {
+            fsCommon.successMsg("新增失败");
+        }
+
+
+
+
+</html>

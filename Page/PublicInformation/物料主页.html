@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<script src="common.js"></script>
+		
+  <style>
+                .layui-table-cell {
+            height: 100%;
+            max-width: 100%;
+        }
+
+
+    </style>
+	</head>
+
+<body class="layui-view-body  pace-done" style="">
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" style="transform: translate3d(100%, 0px, 0px);" data-progress-text="100%" data-progress="99">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <div class="layui-content">
+        <div class="layui-row layui-col-space10">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div class="layui-form-query">
+                            <form class="layui-form" id="query_form">
+                                <div class="layui-form-item">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-mid">功能号：</label>
+                                        <div class="layui-input-inline" style="width: 100px;">
+                                            <input type="text" name="funcNo" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-mid">名称：</label>
+                                        <div class="layui-input-inline" style="width: 150px;">
+                                            <input type="text" name="funcName" autocomplete="off" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-mid">类型：</label>
+                                        <div class="layui-input-inline" style="width: 150px;">
+                                            <select name="funcType" lay-verify="required">
+                                                <option value="">--请选择--</option>
+                                                <option value="c">功能号实现类</option>
+                                                <option value="s">service实现类</option>
+                                                <option value="m">mapper实现类</option>
+                                            </select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="--请选择--" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="" class="layui-select-tips">--请选择--</dd><dd lay-value="c" class="">功能号实现类</dd><dd lay-value="s" class="">service实现类</dd><dd lay-value="m" class="">mapper实现类</dd></dl></div>
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <div class="layui-input-inline">
+                                            <button class="layui-btn layui-btn-blue" type="button" function="query"><i class="layui-icon"></i>查询</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div>
+                            <button class="layui-btn layui-btn-blue" function="top" topurl="/Home/dd" topwidth="700px" topheight="450px" topMode="add" toptitle="新增功能号信息">
+                                <i class="layui-icon"></i>新增
+                            </button>
+                            <button class="layui-btn layui-btn-blue" function="top" topurl="views/complexDatagrid/edit.html" topwidth="700px" topheight="450px" isselect="1" toptitle="编辑功能号信息" inputs="id:">
+                                <i class="layui-icon"></i>编辑
+                            </button>
+                            <button class="layui-btn layui-btn-blue" function="refresh">
+                                <i class="layui-icon"></i>刷新
+                            </button>
+                        </div>
+                        <table id="fsDatagrid" lay-filter="fsDatagrid" isLoad="1" class="fsDatagrid" url="/api/Test/Get" pageSize="20" ispage="0" defaultform="query_form"   cellMinWidth="80">
+                        </table>
+
+                        <div class="fsDatagridCols">
+                            <p type="numbers" title="#" rowspan="2"></p>
+                            <p checkbox="true"></p>
+                            <p field="MaterielId" title="物料ID" align="center"></p>
+                            <p field="MaterielName" title="物料名称" align="center"></p>
+
+                            <p field="MeteringId" title="计量单位" align="center"></p>
+                            <p field="DisabledTime" title="计量单位" align="center" formatType="date"></p>
+                            <p type="right" title="操作" align="center", toolbar="#barDemo"></p>
+                        </div>
+
+
+
+                        <script type="text/html" id="barDemo">
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="top" topUrl="/Home/dd" topMode="readonly" topWidth="800px" topHeight="600px" topTitle="查看物料信息" inputs="MaterielId:">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="top"  topUrl="/Home/dd" topWidth="800px" topHeight="600px" topMode="edit" topTitle="编辑物料信息" inputs="MaterielId:">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="/Home/dd" isConfirm="1" confirmMsg="是否确定删除当前记录？" inputs="MaterielId:">删除</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="test2">测试</a>
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+    </script>
+
+
+    <div class="layui-layer-move"></div>
+</body>
+
+</html>

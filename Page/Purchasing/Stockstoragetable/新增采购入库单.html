@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="common.js"></script>
+		<style>
+			.layui-table-cell {
+				height: 100%;
+				max-width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="site-text site-block">
+			<form class="layui-form layui-form-pane" action="" isLoad="1" loadUrl="/Materiel/GetQueny" id="Materiel">
+				<input id="id" name="MaterielId" type="hidden" />
+				<div class="layui-form-item">
+					<label class="layui-form-label required">供应商</label>
+					<div class="layui-input-inline">
+						<input type="text" name="MaterielName" required="" lay-verify="required" placeholder="请输入物料名称" autocomplete="off" class="layui-input">
+					</div>
+
+					<label class="layui-form-label">单据日期</label>
+					<div class="layui-input-inline">
+						<input type="text" name="EnglishName" autocomplete="off" class="layui-input">
+					</div>
+
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label required">供应商地址</label>
+					<div class="layui-input-inline">
+						<input type="text" name="MaterielTypeId" required="" lay-verify="required" autocomplete="off" class="layui-input">
+					</div>
+
+					<label class="layui-form-label required">单据号码</label>
+					<div class="layui-input-inline">
+						<input type="text" name="MeteringId" required="" lay-verify="required" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">采购入库类型</label>
+					<div class="layui-input-inline">
+						<input type="text" name="MaterielModel" autocomplete="off" class="layui-input">
+					</div>
+
+					<label class="layui-form-label">币别</label>
+					<div class="layui-input-inline">
+						<input type="text" name="BarCode" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">单价是否含税</label>
+					<div class="layui-input-inline">
+						<input type="text" name="MaterielModel" autocomplete="off" class="layui-input">
+					</div>
+
+					<label class="layui-form-label">汇率</label>
+					<div class="layui-input-inline">
+						<input type="text" name="BarCode" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">仓库</label>
+					<div class="layui-input-inline">
+						<input type="text" name="MaterielModel" autocomplete="off" class="layui-input">
+					</div>
+
+					<label class="layui-form-label">国外贸易</label>
+					<div class="layui-input-inline">
+						<input type="text" name="BarCode" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-form-item">
+					<label class="layui-form-label">凭证编号</label>
+					<div class="layui-input-inline">
+						<input type="text" name="MaterielModel" autocomplete="off" class="layui-input">
+					</div>
+
+					<label class="layui-form-label"></label>
+					<div class="layui-input-inline">
+						<input type="checkbox" title="复审后自动生成发票" lay-skin="primary">
+					</div>
+				</div>
+
+				<div class="layui-tab">
+					<ul class="layui-tab-title">
+						<li class="layui-this">内容</li>
+						<li>备注</li>
+
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+
+							<table id="fsDatagrid" isTotalRow="1" lay-filter="fsDatagrid" class="fsDatagrid" url="/Materiel/Queny" pageSize="20" isLoad="0" ispage="1" defaultform="query_form" isLoad="1" cellMinWidth="80">
+							</table>
+
+							<div class="fsDatagridCols">
+								<p type="numbers" title="拦号" rowspan="2"></p>
+								<p totalRowText="合计:"></p>
+								<p field="MaterielId" title="物料编号" align="center"></p>
+								<p field="MaterielName" title="物料名称" align="center"></p>
+								<p field="MaterielTypeId" title="规格型号" align="center" dict="materielType"></p>
+								<p field="MeteringId" title="单位名称" align="center"></p>
+								<p field="DisabledTime" title="数量" align="center" totalRow></p>
+								<p type="right" title="折扣前单价" align="center"></p>
+								<p type="right" title="折数(%)" align="center"></p>
+								<p type="right" title="单价" align="center"></p>
+								<p type="right" title="金额" align="center" totalRow></p>
+								<p type="right" title="税率(%)" align="center"></p>
+								<p type="right" title="税额" align="center" totalRow></p>
+								<p type="right" title="含税金额" align="center" totalRow></p>
+
+								<p type="right" title="批号" align="center" totalRow></p>
+								<p type="right" title="赠品" align="center"></p>
+
+								<p type="right" title="发票明细" align="center" totalRow></p>
+
+								<p type="right" title="未开发票数量" align="center"></p>
+								<p type="right" title="分录备注" align="center"></p>
+								<p type="right" title="来源单别" align="center"></p>
+								<p type="right" title="来源单号" align="center"></p>
+								<p type="right" title="分摊费用" align="center"></p>
+
+							</div>
+
+						</div>
+
+						<div class="layui-tab-item">
+
+							<div class="layui-inline">
+								<label class="layui-form-mid">备注：</label>
+
+								<textarea class="layui-textarea"></textarea>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-mid">采购人员：</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" name="funcNo" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-mid">制单人员：</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" name="funcNo" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-mid">审核人员：</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" name="funcNo" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-mid">所属部门：</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" name="funcNo" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+				<div class="layui-inline">
+					<label class="layui-form-mid">所属项目：</label>
+					<div class="layui-input-inline" style="width: 100px;">
+						<input type="text" name="funcNo" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</body>
+
+</html>
