@@ -470,6 +470,8 @@ layui.define(["fsCommon","table",'laypage','element','fsConfig','form','slider',
    */
   FsDatagrid.prototype.addRow = function(param){
     if(!$.isEmpty(this.datagrid)){
+      console.info(param);
+      console.log(this.datagrid);
       this.datagrid.addRow(param);
     }
   };

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>采购请购单新增</title>
+    <script src="/FsLayui/common.js"></script>
+    <style>
+        .layui-table-cell {
+            height: 100%;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <!--
+
+
+{"Appid":"001","Appdate":"2019-08-26T00:00:00","Apptype":"","Appcircs":3,"Appperson":"请购人员","Apppersonid":"","Appdept":"傻逼部门","Appdeptid":"A001","Appmaker":"制单人员","Appauditingperson":"复核人员","Appauditing":"无效","Stockapplyname":"","Enables":1,"Safetyone":"","Safetytwo":"","Extend0":null,"Extend1":null,"Extend2":null,"Extend3":null,"Extend4":null}}}
+
+    -->
+    <div class="site-text site-block">
+        <form class="layui-form layui-form-pane" action="" groupId="fsDatagrid" isLoad="1" method="POST" loadUrl="/api/Stockapply/Get"
+            id="Materiel">
+            <input id="id" name="MaterielId" type="hidden" />
+            <div class="layui-form-item">
+                <label class="layui-form-label required">采购请购类型</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Apptype" required="" lay-verify="required" placeholder="请输入物料名称"
+                        autocomplete="off" class="layui-input">
+                </div>
+
+                <label class="layui-form-label">单据日期</label>
+                <div class="layui-input-inline">
+                        <input type="text" name="Appdate" autocomplete="off" class="layui-input fsDate" dateType="datetime" />
+                </div>
+
+
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label required">单况</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Appauditing" required="" lay-verify="required" autocomplete="off"
+                        class="layui-input">
+                </div>
+
+
+                <label class="layui-form-label required">单据号码</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="Appid" required="" lay-verify="required" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+
+
+
+            <div class="layui-tab">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">内容</li>
+                    <li>备注</li>
+
+                </ul>
+                <div class="layui-tab-content">
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <div class="layui-form-query">
+
+
+
+
+                                <div class="layui-tab-item layui-show">
+
+                                    <div class="layui-col-md12">
+                                        <div class="layui-card">
+                                            <div class="layui-card-body">
+
+                                                <div>
+                                                    <button class="layui-btn layui-btn layui-btn-sm layui-btn-blue"
+                                                        function="addRow" tableId="fsDatagrid">
+                                                        <i class="layui-icon">&#xe654;</i>手动输入物料
+                                                    </button>
+                                                    
+                                                    <button class="layui-btn layui-btn layui-btn-sm layui-btn-blue"
+                                                        function="topAddRow" tableId="fsDatagrid"
+                                                        topUrl="Queny.html" topWidth="700px"
+                                                        topHeight="275px" isMaxWindow="" topTitle="新增信息">
+                                                        <i class="layui-icon">&#xe654;</i>选择弹窗物料
+                                                    </button>
+
+
+                                                    <button class="layui-btn layui-btn-blue" function="Retrieve" isSelect="1" >
+                                                            <i class="layui-icon"></i>取回
+                                                    </button>
+
+                                                        <button class="layui-btn layui-btn layui-btn-sm layui-btn-blue" function="topAddRow" tableId="fsDatagrid" topUrl="AddRow.html" topWidth="700px" topHeight="275px" isMaxWindow="" topTitle="新增信息">
+                                                            <i class="layui-icon">&#xe654;</i>新增弹窗
+                                                        </button>
+
+                                                        
+
+                                                       
+
+                                                </div>
+
+                                                <table id="fsDatagrid" isTotalRow="1" lay-filter="fsDatagrid"
+                                                groupId="fsDatagrid"
+                                                    class="fsDatagrid" method="Get"
+                                                    url="/api/StockapplyDetails/StockapplyQueny"
+                                                    defaultform="query_form" isLoad="1" isTotalRow="1" cellMinWidth="50"
+                                                    inputs="Appid:" isPage="0" width="900" height="500-100" style="display: none">
+                                                </table>
+
+                                                <div class="fsDatagridCols">
+                                                    <p type="numbers" title="拦号" width="100"></p>
+                                                    <p field="Apdmateridlid" title="物料编号" align="center" width="100"
+                                                        totalRowText="合计:"></p>
+                                                    <p field="Apdmateridlname"  title="物料名称" align="center" 
+                                                        width="200">
+                                                    </p>
+                                                    <p field="Apdmodel" title="规格型号" align="center" dict="materielType"
+                                                        width="100">
+                                                    </p>
+                                                    <p field="Apdunit" title="单位名称" align="center" width="100"></p>
+                                                    <p field="Apdnum" title="数量" align="center" width="50" edit="text"
+                                                        totalRow="true"></p>
+                                                    <p field="Apdstandardprice" title="标准进加" align="center" width="100"
+                                                        totalRow="true"></p>
+                                                    <p field="Apdstandardmoney" title="标准金价金额" align="center"
+                                                        width="150" totalRow="true"></p>
+                                                    <p field="Apdprice" title="单价" align="center" width="100"
+                                                        totalRow="true"></p>
+                                                    <p field="Apdintomoney" title="进价金额" align="center" width="100"></p>
+                                                    <p field="Apddemanddate" title="需求日期" formatType="data" templet="#time" edit="text"
+                                                        align="center" width="200"></p>
+                                                    <p field="Apdstockdate" title="建议采购日期" formatType="data"
+                                                        align="center" width="200"></p>
+                                                    <p field="Apdnotnum" title="未采购数量" align="center" width="100"
+                                                        totalRow="true">
+                                                    </p>
+                                                    <p field="Apdremark" title="分录备注" align="center" width="100"></p>
+                                                    <p field="Apdoriginid" title="来源单别" align="center" width="100"></p>
+                                                    <p field="Apdorigintype" title="来源单号" align="center" width="200">
+                                                    </p>
+                                                    <p fixed="right" align="center" toolbar="#barDemo" title="操作"
+                                                        width="100"></p>
+
+                                                    <p field="Extend0" hide="true" title="扩展字段"></p>
+                                                    <p field="Extend1" hide="true" title="扩展字段"></p>
+                                                    <p field="Extend2" hide="true" title="扩展字段"></p>
+                                                    <p field="Extend3" hide="true" title="扩展字段"></p>
+                                                    <p field="Extend4" hide="true" title="扩展字段"></p>
+
+                                                </div>
+                                                <script type="text/html" id="barDemo">
+                                                    <div class="layui-btn-container">
+                                                    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delRow" isConfirm="1" confirmMsg="是否确定删除当前记录？">删除</a>
+                                                    </div>
+                                               </script>
+
+
+                                               <script type="text/html" id="time">
+                                                 <input type="text" name="createdTime" autocomplete="off" class="layui-input fsDate" dateType="datetime" />
+                                               </script>
+
+                                               <script type="text/html" id="name">
+                                                    <button class="layui-btn layui-btn layui-btn-sm layui-btn-blue"
+                                                            function="topAddRow" tableId="fsDatagrid"
+                                                            topUrl="Queny.html" topWidth="700px"
+                                                            topHeight="275px" isMaxWindow="" topTitle="新增信息">
+                                                            <i class="layui-icon">&#xe654;</i>{{d.Apdmateridlname}}
+                                                    </button>
+                                               </script>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class="layui-tab-item">
+
+                        <div class="layui-inline">
+                            <label class="layui-form-mid">备注：</label>
+
+                            <textarea class="layui-textarea"></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-mid">请购人员：</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="funcNo" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-mid">请购部门：</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="funcNo" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-mid">制单人员：</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="funcNo" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-mid">审核人员：</label>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="funcNo" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <button class="layui-btn fsAdd" 
+                function="save" groupId="fsDatagrid" url="/api/Stockapply/AddStockapply" method="POST">
+                <i class="layui-icon">&#xe609;</i>新增采购请购单
+            </button>
+
+        </form>
+    </div>
+</body>
+
+</html>
+<script>
+
+    
+
+
+    
+    layui.fsRequestSuccessCallback.add = function (result, _this, fsCommon) {
+        console.log(result);
+        if (result.flage) {
+            fsCommon.successMsg("新增成功");
+            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+            window.parent.location.reload();   //刷新父界面
+            parent.layer.close(index);    //关闭弹出层
+
+        } else {
+            fsCommon.successMsg("新增失败");
+        }
+    }
+    
+   
+    
+    
+
+layui.use(['table'], function(){
+  var table = layui.table,
+  fsDatagrid = layui.fsDatagrid;
+  
+        //监听行单击事件
+        table.on('rowDouble(fsDatagrid)', function(obj){
+            console.log(obj.tr) //得到当前行元素对象
+            console.log(obj.data) //得到当前行数据
+           
+
+            
+          
+            //obj.del(); //删除当前行
+            //obj.update(fields) //修改当前行数据
+            });
+              });
+
+//  layui.use(['table','fsDatagrid'], function(){
+
+
+// });
+
+           
+   
+
+  
+
+
+   var SelectData= function(obj){
+        fsCommon.successMsg("执行回调了");
+        for(var i=0;i<obj.length;i++){
+            GetDatagrId("fsDatagrid").addRow(obj[i]);
+            alert(JSON.stringify(obj[i]));
+        }
+    }
+
+
+
+</script>

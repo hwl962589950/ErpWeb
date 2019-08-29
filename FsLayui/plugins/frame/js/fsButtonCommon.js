@@ -36,6 +36,30 @@ layui.define(['fsConfig'], function (exports) {
 		alert("测试自定义按钮"+JSON.stringify(data));
 	}
 
+	//取回数据
+	FsButtonCommon.prototype.Retrieve= function(elem,data,datagrid,fsCommon){
+		var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+
+		//判断是否有父级窗口
+		if(index==undefined)
+		{
+			return;
+		}else
+		{
+			//判断是否有函数
+			if(window.parent.SelectData!=undefined)
+			{
+				window.parent.SelectData(data);
+				parent.layer.close(index);    //关闭弹出层
+				
+			}else{
+				fsCommon.successMsg("父级页面并没有 函数:SelectData ");
+			}
+			
+		}
+		
+	}
+
 	var fsButtonCommon = new FsButtonCommon();
 	exports('fsButtonCommon', fsButtonCommon);
 });

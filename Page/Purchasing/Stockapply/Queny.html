@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>查询采购请购单</title>
         <script src="/FsLayui/common.js"></script>
 		
 		
@@ -63,37 +63,43 @@
                             </form>
                         </div>
                         <div>
-                            <button class="layui-btn layui-btn-blue" function="top" topurl="/Home/dd" topwidth="700px" topheight="450px" topMode="add" toptitle="新增功能号信息">
+                            <button class="layui-btn layui-btn-blue" function="top" topurl="add.html" topwidth="700px" topheight="450px" topMode="add" toptitle="新增功能号信息">
                                 <i class="layui-icon"></i>新增
                             </button>
-                            <button class="layui-btn layui-btn-blue" function="top" topurl="views/complexDatagrid/edit.html" topwidth="700px" topheight="450px" isselect="1" toptitle="编辑功能号信息" inputs="id:">
+                            <button class="layui-btn layui-btn-blue" function="top" topurl="add.html" topwidth="700px" topheight="450px" isselect="1" toptitle="编辑功能号信息" inputs="id:">
                                 <i class="layui-icon"></i>编辑
                             </button>
                             <button class="layui-btn layui-btn-blue" function="refresh">
                                 <i class="layui-icon"></i>刷新
                             </button>
+
+                            <button class="layui-btn layui-btn-blue" function="Retrieve">
+                                    <i class="layui-icon"></i>取回
+                                </button>
+
+                            
+
+                        
+                            
                         </div>
-                        <table id="fsDatagrid" lay-filter="fsDatagrid" isLoad="1" class="fsDatagrid" url="/api/Test/Get" pageSize="20" ispage="0" defaultform="query_form"   cellMinWidth="80">
+                        <table id="fsDatagrid" lay-filter="fsDatagrid" isLoad="1" class="fsDatagrid" url="/api/Stockapply/Queny" pageSize="20" ispage="0" defaultform="query_form"   cellMinWidth="80">
                         </table>
 
                         <div class="fsDatagridCols">
-                            <p type="numbers" title="#" rowspan="2"></p>
-                            <p checkbox="true"></p>
-                            <p field="MaterielId" title="物料ID" align="center"></p>
-                            <p field="MaterielName" title="物料名称" align="center"></p>
-
-                            <p field="MeteringId" title="计量单位" align="center"></p>
-                            <p field="DisabledTime" title="计量单位" align="center" formatType="date"></p>
-                            <p type="right" title="操作" align="center", toolbar="#barDemo"></p>
+                            <p checkbox="true" fixed="left"></p>
+                            <p field="Appid" title="订单号" align="center" fixed="left" ></p>
+                            <p field="Apptype" title="采购类型" align="center"></p>
+                            <p field="Appcircs" title="单况" align="center"></p>
+                            <p field="Appdate" title="单据日期" align="center" formatType="date"></p>
+                            <p type="right" title="操作" align="center", toolbar="#barDemo" fixed="right"></p>
                         </div>
 
 
 
                         <script type="text/html" id="barDemo">
-                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="top" topUrl="/Home/dd" topMode="readonly" topWidth="800px" topHeight="600px" topTitle="查看物料信息" inputs="MaterielId:">查看</a>
-                            <a class="layui-btn layui-btn-xs" lay-event="top"  topUrl="/Home/dd" topWidth="800px" topHeight="600px" topMode="edit" topTitle="编辑物料信息" inputs="MaterielId:">编辑</a>
-                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="/Home/dd" isConfirm="1" confirmMsg="是否确定删除当前记录？" inputs="MaterielId:">删除</a>
-                            <a class="layui-btn layui-btn-xs" lay-event="test2">测试</a>
+                            <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="top" topUrl="add.html" topMode="readonly" topWidth="800px" topHeight="600px" topTitle="查看物料信息" inputs="Appid:">查看</a>
+                            <a class="layui-btn layui-btn-xs" lay-event="top"  topUrl="add.html" topWidth="800px" topHeight="600px" topMode="edit" topTitle="编辑物料信息" inputs="Appid:">编辑</a>
+                            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="submit" url="add.html" isConfirm="1" confirmMsg="是否确定删除当前记录？" inputs="Appid:">删除</a>
                         </script>
                     </div>
                 </div>

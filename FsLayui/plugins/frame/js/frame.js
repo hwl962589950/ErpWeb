@@ -20,6 +20,13 @@
  * @author: fallsea
  * @version 2.3.1
  */
+
+
+var GetDatagrId = function fun(str){
+
+}
+
+
 layui.use(['fsForm','fsDatagrid','fsTree','fsCommon','element'], function(){
 	var fsForm = layui.fsForm,
 	fsDatagrid = layui.fsDatagrid,
@@ -274,9 +281,17 @@ layui.use(['fsForm','fsDatagrid','fsTree','fsCommon','element'], function(){
     if($.isEmpty(datagrids)){
     	fsCommon.warnMsg("未配置datagrid！");
       return;
-    }
+	}
     return datagrids[tableId];
   }
+
+  GetDatagrId=function (str){
+	 return datagrids[str];
+  };
+
+
+
+
   /********* datagrid 处理   end *************/
 
 
@@ -318,3 +333,5 @@ layui.use(['fsForm','fsDatagrid','fsTree','fsCommon','element'], function(){
   /******* 收缩处理 end ********/
 
 });
+
+

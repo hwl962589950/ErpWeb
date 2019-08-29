@@ -96,7 +96,7 @@
 					<button class="layui-btn layui-btn layui-btn-sm layui-btn-blue" function="addRow" tableId="addFsDatagrid">
 						<i class="layui-icon">&#xe654;</i>新增
 					</button>
-					<button class="layui-btn layui-btn layui-btn-sm layui-btn-blue" function="topAddRow" tableId="addFsDatagrid" topUrl="views/staticDatagrid/addRow.html" topWidth="700px" topHeight="275px" isMaxWindow="" topTitle="新增信息">
+					<button class="layui-btn layui-btn layui-btn-sm layui-btn-blue" function="topAddRow" tableId="addFsDatagrid" topUrl="addRow.html" topWidth="700px" topHeight="275px" isMaxWindow="" topTitle="新增信息">
 						<i class="layui-icon">&#xe654;</i>新增弹窗
 					</button>
 				</div>
@@ -133,13 +133,20 @@
 </div>
 </div>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d506ef94f6ea5b1b6824728a5e476535";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
+// layui.use(['table','fsDatagrid'], function(){
+
+// var fsDatagrid = layui.fsDatagrid;
+
+// var datagrid = fsDatagrid.render({id:'addFsDatagrid'});
+// var d =fsDatagrid["addFsDatagrid"];
+// datagrid.prototype.addRow();
+// console.log(d);
+
+// // alert(fsDatagrid);
+// // console.log(fsDatagrid)
+// //  var d =fsDatagrid.datagrids.getDatagrid("addFsDatagrid");
+// });
+ 
 </script>
 </body>
 </html>

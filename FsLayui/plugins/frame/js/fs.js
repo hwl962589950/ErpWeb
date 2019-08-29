@@ -21,7 +21,7 @@
  * @version 2.3.1
  */
 layui.config({
-	base : "FsLayui/plugins/frame/js/",//设定扩展的Layui模块的所在目录，一般用于外部模块扩展
+	base : "/FsLayui/plugins/frame/js/",//设定扩展的Layui模块的所在目录，一般用于外部模块扩展
 	version : '2.3.1'
 });
 

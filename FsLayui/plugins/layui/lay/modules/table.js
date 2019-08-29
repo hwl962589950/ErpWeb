@@ -88,6 +88,11 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util','fsConfig'], function
       	that.pullData(that.page, that.loading());
       },
       addRow : function(dataRow){
+        console.info("table.js")
+        
+        console.info(that.key)
+        console.log(dataRow)
+
       	var data = table.cache[that.key];
       	if($.isEmpty(data)){
       		data = new Array();
@@ -100,9 +105,17 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util','fsConfig'], function
       		row["fsType"] = "add";
       	}
       	data.push(row);
-      	var res = {};
+        var res = {};
+
       	res[options.response.dataName] = data;
         that.renderData(res);
+
+        console.info("res")
+        console.log(res)
+        
+        console.info("that")
+        console.log(that)
+
       },
       refreshStatic : function(){
       	var data = table.cache[that.key];
@@ -675,6 +688,8 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util','fsConfig'], function
 
   //表格重载
   Class.prototype.reload = function(options){
+    console.info("表格重载了");
+    console.log(options);
     var that = this;
     if(that.config.data && that.config.data.constructor === Array) delete that.config.data;
     that.config = $.extend({}, that.config, options);

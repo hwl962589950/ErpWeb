@@ -489,6 +489,9 @@ layui.define([ 'layer', 'form', 'fsConfig', 'fsButtonCommon' ], function(exports
 							var str = $.getSessionStorage("fsDataRow");
 							$.removeSessionStorage("fsDataRow");
 							if(!$.isEmpty(str)){
+								console.info("fsCommon")
+								console.info(_tableId)
+								console.log(getDatagrid(_tableId))
 								getDatagrid(_tableId).addRow(JSON.parse(str));
 							}
 						}else{

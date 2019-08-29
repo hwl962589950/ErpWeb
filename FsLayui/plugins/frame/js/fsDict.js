@@ -88,10 +88,9 @@ layui.fsDict = {
  			method : "post",
  			labelField : "name",
  			valueField : "id"
- 			
- 			
- 			
- 			
- 		}
+		 }
+		 
+		 //采购请购类型
+		 
  		
 };
