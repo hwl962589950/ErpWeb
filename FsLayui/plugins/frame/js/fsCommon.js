@@ -39,6 +39,19 @@ layui.define([ 'layer', 'form', 'fsConfig', 'fsButtonCommon' ], function(exports
 
 	var fsCommon = {
 
+
+		//获取URL信息
+		getQueryVariable:function (variable)
+		{
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i=0;i<vars.length;i++) {
+					var pair = vars[i].split("=");
+					if(pair[0] == variable){return pair[1];}
+			}
+			return(false);
+		},
+
 		/**错误msg提示 */
 		errorMsg : function(text,time) {
 			if($.isEmpty(time)){
@@ -489,9 +502,6 @@ layui.define([ 'layer', 'form', 'fsConfig', 'fsButtonCommon' ], function(exports
 							var str = $.getSessionStorage("fsDataRow");
 							$.removeSessionStorage("fsDataRow");
 							if(!$.isEmpty(str)){
-								console.info("fsCommon")
-								console.info(_tableId)
-								console.log(getDatagrid(_tableId))
 								getDatagrid(_tableId).addRow(JSON.parse(str));
 							}
 						}else{
@@ -621,7 +631,6 @@ layui.define([ 'layer', 'form', 'fsConfig', 'fsButtonCommon' ], function(exports
 				getDatagrid(_tableId).addRow();
 				break;
 			case "save":
-
 				var groupId = _this.attr("groupId"); //分组id
 
 				if ($.isEmpty(groupId)) {
@@ -972,5 +981,7 @@ layui.define([ 'layer', 'form', 'fsConfig', 'fsButtonCommon' ], function(exports
 	    return tree;
 		}
 	};
+
+	
 	exports('fsCommon', fsCommon);
 })

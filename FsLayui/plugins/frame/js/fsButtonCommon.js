@@ -40,16 +40,25 @@ layui.define(['fsConfig'], function (exports) {
 	FsButtonCommon.prototype.Retrieve= function(elem,data,datagrid,fsCommon){
 		var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 
+
 		//判断是否有父级窗口
 		if(index==undefined)
 		{
 			return;
 		}else
 		{
+			var _thisRarent={};
+			if(parent.length>1){
+				_thisRarent=parent[0];
+			}else{
+				_thisRarent=parent;
+			}
+
 			//判断是否有函数
-			if(window.parent.SelectData!=undefined)
+			if(_thisRarent.SelectData!=undefined)
 			{
-				window.parent.SelectData(data);
+				_thisRarent.SelectData(data);
+				
 				parent.layer.close(index);    //关闭弹出层
 				
 			}else{

@@ -88,12 +88,7 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util','fsConfig'], function
       	that.pullData(that.page, that.loading());
       },
       addRow : function(dataRow){
-        console.info("table.js")
-        
-        console.info(that.key)
-        console.log(dataRow)
-
-      	var data = table.cache[that.key];
+        var data = table.cache[that.key];
       	if($.isEmpty(data)){
       		data = new Array();
       	}
@@ -109,13 +104,6 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util','fsConfig'], function
 
       	res[options.response.dataName] = data;
         that.renderData(res);
-
-        console.info("res")
-        console.log(res)
-        
-        console.info("that")
-        console.log(that)
-
       },
       refreshStatic : function(){
       	var data = table.cache[that.key];

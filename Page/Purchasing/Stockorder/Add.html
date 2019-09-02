@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script src="common.js"></script>
+		<script src="/FsLayui/common.js"></script>
 		<style>
 			.layui-table-cell {
 				height: 100%;
@@ -21,7 +21,8 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label required">供应商</label>
 					<div class="layui-input-inline">
-						<input type="text" name="MaterielName" required="" lay-verify="required" placeholder="请输入物料名称" autocomplete="off" class="layui-input">
+						<input type="text" name="MaterielName" id="MaterielName" function="Retrieve" required="" lay-verify="required" placeholder="请输入物料名称" autocomplete="off" 
+						class="layui-input Retrieve" >
 					</div>
 
 					<label class="layui-form-label">单据日期</label>
@@ -164,3 +165,14 @@
 	</body>
 
 </html>
+<script>
+
+	$("#MaterielName").on('click',function(){
+			alert();
+	});
+
+	$("#MaterielName").click();
+
+
+
+</script>

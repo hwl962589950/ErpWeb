@@ -34,6 +34,74 @@ layui.use(['fsForm','fsDatagrid','fsTree','fsCommon','element'], function(){
 	element = layui.element;
 	fsCommon = layui.fsCommon;
 
+
+/*****  取回数据 start *****/
+
+var dataDoms=$(".Retrieve");
+var datas={};
+
+if(dataDoms.length>0){
+
+	$(dataDoms).each(function (index, domEle) {
+		//打开的页面
+		var _url = $(domEle).attr("MUrl");
+		//回调的方法
+		var _fun = $(domEle).attr("MFun");
+
+		if(_url!=undefined && _url!="" && _fun!=undefined ){
+			_url=_url+"?_MFun="+_fun;
+			alert(_url);
+			$(domEle).on('click',function(){
+				//var _width = domEle.attr("topWidth")?domEle.attr("topWidth"):"20px";
+				// _height = domEle.attr("topHeight");
+
+				//var isMaximize = domEle.attr("isMaximize");
+				fsCommon.open('', '200px', '200px', _url, function() {
+					//窗口关闭回调
+				}, '');
+
+			});
+		}
+	});
+}
+
+
+/*****  取回数据 end *****/
+
+
+
+
+/*****  取回数据回调 start *****/
+
+var dataendDoms=$(".RetrieveEnd");
+if(dataendDoms.length>0){
+	$(dataendDoms).each(function (index, domEle) {
+		var fun = $(this).attr("Mfun");
+		if(fun!=undefined && fun!=""  ){
+			var _this = window[fun];
+			if(_this!=undefined){
+				//子页面数据
+				var data = _this();
+				//
+				var baseurl = fsCommon.getQueryVariable("_MFun");
+				alert(baseurl);
+				if(baseurl){
+					$(this).on('click',function(){
+						//取到父级页面的函数
+						var baseFun = window.parent[baseurl];
+
+						//调用
+						baseFun?baseFun(domEle,data,fsCommon):null;
+					});
+				}
+			}
+		}
+	});
+}
+
+/*****  取回数据回调  end *****/
+
+
 	/********* form 表单处理   start *************/
 	var formDoms =$("form");
 	var forms = {};

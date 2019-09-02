@@ -192,23 +192,36 @@ layui.define(["fsCommon","table",'laypage','element','fsConfig','form','slider',
       return ;
 	  }
 
+//GetData 取回数据模板
+//  FsMyAddRow  新增表格内容
+// FsRetrieve   取回数据
+
 	  //判断模式
 	  var urlParam = fsCommon.getUrlParam();
-		var _mode = urlParam["_mode"];
+    var _mode = urlParam["_mode"];
 		if(!$.isEmpty(_mode)){
 			if("readonly" == _mode){//只读
 				//设置只读
-				_table.attr("isLoad","1");
-				$("button.fsNew,button.fsEdit").hide();
+        _table.attr("isLoad","1");
+        $("button.fsAdd").hide();
+        $("button.fsNew,button.fsEdit").hide();
+        $("button.FsRetrieve").show();
 			}else if("add" == _mode){//新增
 				_table.attr("isLoad","0");
 				$("button.fsEdit").hide();
-				$("button:not(.fsEdit)").show();
+        $("button:not(.fsEdit)").show();
+        $("button.FsRetrieve").hide();
 			}else if("edit" == _mode){//编辑
-				_table.attr("isLoad","1");
+        _table.attr("isLoad","1");
 				$("button.fsAdd").hide();
-				$("button:not(.fsAdd)").show();
-			}
+        $("button:not(.fsAdd)").show();
+        $("button.FsRetrieve").hide();
+
+			}else if("GetData" == _mode){
+        $("button:not(.FsRetrieve)").hide();
+        $("button.FsRetrieve").show();
+
+      }
 		}
 
 	  //获取table属性
@@ -470,8 +483,6 @@ layui.define(["fsCommon","table",'laypage','element','fsConfig','form','slider',
    */
   FsDatagrid.prototype.addRow = function(param){
     if(!$.isEmpty(this.datagrid)){
-      console.info(param);
-      console.log(this.datagrid);
       this.datagrid.addRow(param);
     }
   };
